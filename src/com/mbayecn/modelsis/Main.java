@@ -272,7 +272,15 @@ public class Main {
                 System.out.println("        "+ c.getMedecin().getNom()+"    |  "+e.getCode_medicament());
             });
         }
+
+        System.out.println("");
+        System.out.println("----------12°) Nombre total de médicaments pour chaque consultation-----");
+        System.out.println("");
+        System.out.println("       Nom du médecin        |  Medicements prescrits");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        System.out.println("Histoire de tester git and github ");
     }
+
 
 
 }
