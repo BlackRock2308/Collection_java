@@ -6,7 +6,6 @@ import com.mbayecn.models.Medicament;
 import com.mbayecn.models.Patient;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
@@ -82,7 +81,7 @@ public class Main {
         System.out.println("--------------1°) Tableau des consultation du patient-----------");
         System.out.println("");
         System.out.println("   patient    | numéro de consulation | date de consultation");
-        System.out.println("------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------");
 
         ArrayList<Consultation> consulpatientp1 = new ArrayList<>();
 
@@ -148,7 +147,7 @@ public class Main {
         }
 
         System.out.println("");
-        System.out.println("------------5°) Liste des patients consultés pour un médecin donné -----------");
+        System.out.println("------------5°) Liste des patients consultés pour un médecin donné ---------------");
         System.out.println("");
         System.out.println("   Nom du Patient    |      Nom du médecin     |   Date de consultation    | Numéro décurité Sociale");
         System.out.println("-----------------------------------------------------------------------------------------------------");
@@ -201,7 +200,10 @@ public class Main {
         System.out.println("Le nombre de consultations total est ==> " + compteur);
 
         System.out.println("");
-        System.out.println("/* 9°) Liste des médicaments prescrits lors d'une consultation donnée */");
+        System.out.println("----------9°) Liste des médicaments prescrits lors d'une consulation donnée-----");
+        System.out.println("");
+        System.out.println("Numéro de consultation    |      code médicament       | libelé du médicament");
+        System.out.println("------------------------------------------------------------------------------");
 
         ArrayList<Consultation> medicamentConsultation = new ArrayList<>();
         for(Consultation c : consultations){
@@ -213,9 +215,10 @@ public class Main {
 //            System.out.println("Le médicament numéro: "+ medicaments_consul1 + "a été prescrit lors de la consultation numéro "
 //            + c.getNumero_consulation());
 //        }
-        System.out.println("Lors de la consultation :" + consul1.getNumero_consulation() +" =>");
+        System.out.println("    " + consul1.getNumero_consulation() +"  ");
         medicaments_consul1.forEach((e) -> {
-            System.out.println( e.getCode_medicament());
+            System.out.println( "                               "+ e.getCode_medicament() +
+                    "                         "+ e.getLibelle() );
         });
 
         System.out.println("");
@@ -254,10 +257,10 @@ public class Main {
         }
 
         System.out.println("");
-        System.out.println("----------11°) Liste des médicaments prescrits par au moins un médecin-----");
+        System.out.println("----------12°) Liste des médicaments prescrits par au moins un médecin-----");
         System.out.println("");
         System.out.println("       Nom du médecin        |  Medicements prescrits");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------");
 
         ArrayList<Consultation> list_medoc = new ArrayList<>();
         for(Consultation c : consultations){
@@ -269,16 +272,22 @@ public class Main {
         }
         for (Consultation c : list_medoc){
             c.getMedicaments().forEach((e) -> {
-                System.out.println("        "+ c.getMedecin().getNom()+"    |  "+e.getCode_medicament());
+                System.out.println("        "+ c.getMedecin().getNom()+"                  |  "+e.getCode_medicament());
             });
         }
 
         System.out.println("");
-        System.out.println("----------12°) Nombre total de médicaments pour chaque consultation-----");
+        System.out.println("----------13°) Nombre total de médicaments pour chaque consultation-----");
         System.out.println("");
-        System.out.println("       Nom du médecin        |  Medicements prescrits");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        System.out.println("Histoire de tester git and github ");
+        System.out.println("       Numéro de consulation     |  Nombre de médicaments");
+        System.out.println("-------------------------------------------------------------------------------");
+
+        /*
+        1. Pour connaitre le nombre de médicaments que l'on a dans chaque consultation, on peut créer une
+        variable de classe dans la classe Consultations qui sera initialée à 0 et qui sera incrémentée lorsqu'on va ajouter
+        une nouvelle collection de médicaments dans notre consultation. On pourra utiliser un setter pour modifier la variable.
+
+        */
     }
 
 
